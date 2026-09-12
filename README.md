@@ -22,9 +22,9 @@ After completing the above steps, feel free to begin updating this readme where 
 
 # Project & Portfolio 1
 
-### Student First & Last Name
+### Julia Sudbrink
 
-Hello my name is [enter name]. I am a student from [where are you from?]. The purpose of this repository is to practice development using version control. This work will help me begin to build a portfolio of skills and accomplishment that can be shared in the future.
+Hello my name is [Julia]. I am a student from [Memphis, TN]. The purpose of this repository is to practice development using version control. This work will help me begin to build a portfolio of skills and accomplishment that can be shared in the future.
 
 <br>
 
@@ -44,11 +44,31 @@ Each week I will summarize my milestone activity and progress by writing a stand
 
 ### Week 1
 
-Replace this paragraph with your stand up for this week. Use the prompts above to summarize your most recent milestone activity and work.
+Overview
+This week I focused on planning and designing my project, E.M.O.S. (Emotion Modulation & Optimization System). I developed the project concept, defined the emotional subsystems, planned user interactions, and outlined the overall program structure. I also identified the features and classes needed for future development. 
+
+Challenges
+One challenge was determining how to structure the emotional system while keeping the project manageable. I spent time refining the project scope and deciding how the emotional subsystems would interact with one another.
+
+Accomplishments
+I created a clear project plan for E.M.O.S., including the emotional subsystems of Stability, Empathy, Fear, and Curiosity. I improved my understanding of project planning, class design, and breaking a large project into smaller development tasks.
+
+Next Steps
+My next goal is to begin building the prototype by implementing the menu system, core loop, and initial emotional subsystem functionality. I also plan to start creating the supporting classes needed to expand the project.
 
 ### Week 2
 
-My next stand up will go here...
+Overview
+This week I planned and designed my project, E.M.O.S. (Emotion Modulation & Optimization System). I focused on defining the project's purpose, emotional subsystems, user interactions, and overall program structure. I also created a development plan and identified the classes and features needed for the project.Challenges
+
+Challenges
+The biggest challenge was narrowing down the scope of the project and deciding how the emotional subsystems would interact with each other. I spent time refining the concept to make sure it would be achievable while still being interesting and expandable.Accomplishments
+
+Accomplishments
+I developed a clear vision for E.M.O.S., planned the emotional subsystem structure, and gained a better understanding of breaking a larger project into smaller development tasks.Next Steps
+
+Next Steps
+My next goal is to expand the E.M.O.S. prototype by implementing additional emotional system features, improving usability, and refining the overall program structure. I also plan to begin testing how emotional subsystems interact with one another and continue improving the user experience.
 
 ### Week 3
 
