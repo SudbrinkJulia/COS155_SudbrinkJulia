@@ -1,5 +1,8 @@
 #pragma once
 
+#include <vector>
+#include <string>
+
 class SystemCore {
 public:
     SystemCore();
@@ -17,5 +20,13 @@ public:
     void provideStimulus();
     void viewState();
     void runCycle();
-};
 
+    // Ascension Trial foundation
+    int calculateAscensionScore();
+
+    // Logs system
+    void viewLogs();
+
+private:
+    std::vector<std::string> logs;
+};

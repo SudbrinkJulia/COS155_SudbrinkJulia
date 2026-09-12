@@ -16,7 +16,14 @@ int main() {
         menu.showMainMenu();
 
         int choice;
-        std::cin >> choice;
+
+        if (!(std::cin >> choice)) {
+            std::cin.clear();
+            std::cin.ignore(1000, '\n');
+
+            std::cout << "\nInvalid input. Please enter a number.\n\n";
+            continue;
+        }
 
         if (choice == 1) {
             core.provideStimulus();
@@ -32,9 +39,10 @@ int main() {
         }
         else if (choice == 5) {
             running = false;
+            std::cout << "\nShutting down E.M.O.S...\n";
         }
         else {
-            std::cout << "\nInvalid option.\n\n";
+            std::cout << "\nInvalid option. Please select a number between 1 and 5.\n\n";
         }
     }
 
