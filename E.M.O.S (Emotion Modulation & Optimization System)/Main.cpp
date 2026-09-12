@@ -7,21 +7,30 @@ int main() {
     std::cout << "   E.M.O.S - Emotion Monitoring OS   \n";
     std::cout << "=====================================\n\n";
 
-    SystemCore core;   // SystemCore object
-    Menu menu;         // Menu object
+    SystemCore core;
+    Menu menu;
 
     bool running = true;
 
     while (running) {
-        menu.showMainMenu();   // print menu options
+        menu.showMainMenu();
 
         int choice;
         std::cin >> choice;
 
         if (choice == 1) {
-            core.runDiagnostics();
+            core.provideStimulus();
         }
         else if (choice == 2) {
+            core.viewState();
+        }
+        else if (choice == 3) {
+            core.runCycle();
+        }
+        else if (choice == 4) {
+            core.runDiagnostics();
+        }
+        else if (choice == 5) {
             running = false;
         }
         else {
