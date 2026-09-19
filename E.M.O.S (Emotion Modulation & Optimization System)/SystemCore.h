@@ -16,6 +16,8 @@ public:
 
     int calculateAscensionScore();
 
+    void runAscensionTrial();
+
     void viewLogs();
 
 private:
