@@ -2,10 +2,6 @@
 #include <iostream>
 
 SystemCore::SystemCore() {
-    stability = 50;
-    empathy = 50;
-    fear = 50;
-    curiosity = 50;
 }
 
 void SystemCore::runDiagnostics() {
@@ -15,9 +11,7 @@ void SystemCore::runDiagnostics() {
 }
 
 void SystemCore::provideStimulus() {
-    empathy += 5;
-    stability += 2;
-    fear -= 3;
+    emotionEngine.provideStimulus();
 
     std::cout << "\nExternal stimulus received.\n";
     std::cout << "Emotional state adjusted.\n\n";
@@ -26,10 +20,10 @@ void SystemCore::provideStimulus() {
 void SystemCore::viewState() {
     std::cout << "\n=== Emotional State Report ===\n";
 
-    std::cout << "Stability: " << stability << "\n";
-    std::cout << "Empathy: " << empathy << "\n";
-    std::cout << "Fear: " << fear << "\n";
-    std::cout << "Curiosity: " << curiosity << "\n";
+    std::cout << "Stability: " << emotionEngine.getStability() << "\n";
+    std::cout << "Empathy: " << emotionEngine.getEmpathy() << "\n";
+    std::cout << "Fear: " << emotionEngine.getFear() << "\n";
+    std::cout << "Curiosity: " << emotionEngine.getCuriosity() << "\n";
 
     int ascensionScore = calculateAscensionScore();
 
@@ -49,14 +43,12 @@ void SystemCore::viewState() {
 }
 
 void SystemCore::runCycle() {
-    stability -= 1;
-    curiosity += 2;
-    fear += 1;
+    emotionEngine.runCycle();
 
     std::cout << "\nEmotional cycle processed.\n";
     std::cout << "Subsystems updated.\n\n";
 }
 
 int SystemCore::calculateAscensionScore() {
-    return stability + empathy + curiosity - fear;
+    return emotionEngine.calculateAscensionScore();
 }

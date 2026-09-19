@@ -2,31 +2,23 @@
 
 #include <vector>
 #include <string>
+#include "EmotionEngine.h"
 
 class SystemCore {
 public:
     SystemCore();
 
-    // Existing function
     void runDiagnostics();
 
-    // Emotional subsystem values
-    int stability;
-    int empathy;
-    int fear;
-    int curiosity;
-
-    // Prototype features
     void provideStimulus();
     void viewState();
     void runCycle();
 
-    // Ascension Trial foundation
     int calculateAscensionScore();
 
-    // Logs system
     void viewLogs();
 
 private:
+    EmotionEngine emotionEngine;
     std::vector<std::string> logs;
 };
