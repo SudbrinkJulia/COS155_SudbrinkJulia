@@ -1,22 +1,3 @@
-# 🚀 Welcome to Project & Portfolio!
-
-This repository will be used to keep track of research and development conducted in this class. Follow the instructions below to get started.
-cos
-### Getting Started
-
-**1.** Review the [About](./docs/01_about/README.md) README and all of the links it provides.
-
-**2.** Review the documentation and [Getting Started](./docs/02_getting_started/README.md) steps in this repository's docs folder.
-
-**3.** Attend the first Live Lecture to see a live setup demo. If you are unable to attend, make sure to watch the archive.
-
-### Next Steps...
-
-After completing the above steps, feel free to begin updating this readme where indicated below. Remember to update this document each week to receive proper credit for the weekly Milestone assignment.
-
-<br>
-
-> ❗️ &nbsp; Now that you have read to this point, go ahead and delete this sentence and everything above it.
 
 <br>
 
@@ -71,8 +52,17 @@ Next Steps
 My next goal is to expand the E.M.O.S. prototype by implementing additional emotional system features, improving usability, and refining the overall program structure. I also plan to begin testing how emotional subsystems interact with one another and continue improving the user experience.
 
 ### Week 3
+Overview
+This week I continued developing E.M.O.S. (Emotion Modulation & Optimization System) by expanding the emotional processing system and improving the overall functionality of the program. I moved more of the emotional processing responsibilities into the EmotionEngine class, improved input validation using try/catch, added system logging, improved diagnostics, and added the Ascension Trial feature. I also added limits to the emotional state values so they remain within a 0–100 range.
 
-Stay tuned, this stand up is coming soon...
+Challenges
+One challenge was improving the structure of the program without making it unnecessarily complicated. I also needed to replace the original input validation with try/catch handling and make sure invalid input did not cause the program to stop. Another challenge was making sure the EmotionEngine had a real purpose instead of only existing as a placeholder class.
+
+Accomplishments
+I improved the organization of E.M.O.S. by giving the EmotionEngine responsibility for emotional state changes and Ascension Score calculations. I added system logs and expanded the diagnostics system so the program can report its current emotional state and system status. I also implemented the Ascension Trial and tested both successful and unsuccessful trial results. Finally, I added value limits to prevent emotional states from going below 0 or above 100.
+
+Next Steps
+My next goal is to finish documenting the Milestone 3 changes, review the project for any remaining issues, and make sure the repository is organized and ready for the final milestone review. I also plan to continue testing and polishing E.M.O.S. without adding unnecessary features.
 
 ### Week 4
 
