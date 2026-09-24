@@ -65,5 +65,15 @@ Next Steps
 My next goal is to finish documenting the Milestone 3 changes, review the project for any remaining issues, and make sure the repository is organized and ready for the final milestone review. I also plan to continue testing and polishing E.M.O.S. without adding unnecessary features.
 
 ### Week 4
+Overview 
+This week I focused on completing and preparing E.M.O.S. (Emotion Modulation & Optimization System) for final submission. I reviewed the completed functionality, tested the main features, checked the input validation and emotional state limits, and made sure the different components of the program work together correctly. I also completed the Milestone 4 documentation and reviewed the repository for organization and completeness.
 
-My final stand up...
+Challenges 
+One challenge was making sure the completed features worked together as intended without introducing new problems. I also needed to review the project carefully and verify that the final documentation accurately described the system, its features, and the improvements made throughout development.
+
+Accomplishments 
+I completed the final development and documentation for E.M.O.S. I tested the main menu, emotional state system, stimulus functionality, emotional cycles, diagnostics, system logging, and Ascension Trial. I also verified that invalid input is handled correctly and that emotional values stay within the intended 0–100 range. Completing the final documentation helped me better understand how the different parts of the project work together and how to present the completed project as part of a portfolio.
+
+Next Steps 
+My next goal is to complete the final submission and make sure all required files, documentation, and project materials are included in the repository. After submission, I plan to review what I learned from developing E.M.O.S. and use that experience to continue improving my programming and version control skills.
+
