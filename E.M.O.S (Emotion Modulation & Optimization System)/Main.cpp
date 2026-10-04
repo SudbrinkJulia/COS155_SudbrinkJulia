@@ -4,35 +4,42 @@
 #include "SystemCore.h"
 #include "Menu.h"
 
-// main() is the starting point of the E.M.O.S. program.
-// It creates the main objects, displays the menu,
-// receives the user's input, and sends each choice
-// to the correct SystemCore function.
+// main() starts the program.
+// It shows the menu, reads the user's choice, and calls SystemCore.
 int main() {
+    // Display the E.M.O.S. title when the program starts.
     std::cout << "============================================================\n";
     std::cout << "   E.M.O.S. - Emotion Modulation & Optimization System\n";
     std::cout << "============================================================\n\n";
 
+    // Create the system controller and the object that displays the menu.
     SystemCore core;
     Menu menu;
 
+    // Keep showing the menu until the user chooses Exit.
     bool running = true;
 
     while (running) {
+        // Display the available actions.
         menu.showMainMenu();
 
+        // Read the input as text first so the program can validate it.
         std::string input;
 
         try {
             std::cin >> input;
 
+            // Convert the text to a number.
+            // pos records how many characters were converted.
             size_t pos;
             int choice = std::stoi(input, &pos);
 
+            // Reject input such as "2abc", where not all characters are digits.
             if (pos != input.length()) {
                 throw std::invalid_argument("Invalid input");
             }
 
+            // Send each valid menu choice to the matching SystemCore function.
             if (choice == 1) {
                 core.processStimulus();
             }
@@ -52,14 +59,17 @@ int main() {
                 core.runAscensionTrial();
             }
             else if (choice == 7) {
+                // Change running to false so the while loop ends.
                 running = false;
                 std::cout << "\nShutting down E.M.O.S...\n";
             }
             else {
+                // The input was a number, but not one of the menu choices.
                 std::cout << "\nInvalid option. Please select a number between 1 and 7.\n\n";
             }
         }
         catch (const std::exception&) {
+            // Show an error if the input cannot be converted to a number.
             std::cout << "\nInvalid input. Please enter a number.\n\n";
         }
     }
