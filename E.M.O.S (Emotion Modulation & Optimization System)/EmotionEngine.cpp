@@ -1,6 +1,6 @@
 #include "EmotionEngine.h"
 
-// Set the starting emotional values for E.M.O.S.
+// Sets the starting emotional values for E.M.O.S.
 EmotionEngine::EmotionEngine() {
     stability = 50;
     empathy = 50;
@@ -8,43 +8,52 @@ EmotionEngine::EmotionEngine() {
     curiosity = 50;
 }
 
-// Changes the emotional state when the system receives a stimulus.
-void EmotionEngine::provideStimulus() {
+// Applies emotional changes when the system receives a stimulus.
+void EmotionEngine::applyStimulus() {
     empathy += 5;
     stability += 2;
     fear -= 3;
 
-    // Keep emotional values within the 0-100 range.
-    if (empathy > 100) {
-        empathy = 100;
+    clampEmotionValues();
+}
+
+// Advances the emotional state during one system cycle.
+void EmotionEngine::advanceEmotionalCycle() {
+    stability -= 1;
+    curiosity += 2;
+    fear += 1;
+
+    clampEmotionValues();
+}
+
+// Keeps each emotional value within the 0–100 range.
+void EmotionEngine::clampEmotionValues() {
+    if (stability < 0) {
+        stability = 0;
+    }
+    else if (stability > 100) {
+        stability = 100;
     }
 
-    if (stability > 100) {
-        stability = 100;
+    if (empathy < 0) {
+        empathy = 0;
+    }
+    else if (empathy > 100) {
+        empathy = 100;
     }
 
     if (fear < 0) {
         fear = 0;
     }
-}
-
-// Updates the emotional state during a system cycle.
-void EmotionEngine::runCycle() {
-    stability -= 1;
-    curiosity += 2;
-    fear += 1;
-
-    // Keep emotional values within the 0-100 range.
-    if (stability < 0) {
-        stability = 0;
-    }
-
-    if (curiosity > 100) {
-        curiosity = 100;
-    }
-
-    if (fear > 100) {
+    else if (fear > 100) {
         fear = 100;
+    }
+
+    if (curiosity < 0) {
+        curiosity = 0;
+    }
+    else if (curiosity > 100) {
+        curiosity = 100;
     }
 }
 

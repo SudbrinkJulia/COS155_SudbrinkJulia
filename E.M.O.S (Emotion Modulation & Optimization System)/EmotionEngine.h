@@ -1,31 +1,29 @@
 #pragma once
 
-// EmotionEngine controls the emotional values of E.M.O.S.
-// It changes the emotional state when the system receives
-// a stimulus or runs an emotional cycle.
-
+// EmotionEngine manages the emotional values tracked by E.M.O.S.
 class EmotionEngine {
 public:
-
     // Creates the starting emotional state.
     EmotionEngine();
 
-    // Changes the emotions when an outside stimulus is received.
-    void provideStimulus();
+    // Applies changes when an outside stimulus is received.
+    void applyStimulus();
 
-    // Updates the emotions during a normal system cycle.
-    void runCycle();
+    // Advances the emotional state by one system cycle.
+    void advanceEmotionalCycle();
 
     // Calculates the score used by the Ascension Trial.
     int calculateAscensionScore();
 
-    // These functions let SystemCore read the current emotions.
+    // Lets SystemCore read the current emotional values.
     int getStability() const;
     int getEmpathy() const;
     int getFear() const;
     int getCuriosity() const;
 
 private:
+    // Keeps all emotional values between 0 and 100.
+    void clampEmotionValues();
 
     // The four emotional values tracked by E.M.O.S.
     int stability;
