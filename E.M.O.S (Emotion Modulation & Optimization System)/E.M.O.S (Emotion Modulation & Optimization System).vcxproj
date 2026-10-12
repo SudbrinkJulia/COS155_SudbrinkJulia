@@ -145,6 +145,7 @@
     <ClCompile Include="SystemCore.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ConsoleColors.h" />
     <ClInclude Include="EmotionEngine.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="SystemCore.h" />
