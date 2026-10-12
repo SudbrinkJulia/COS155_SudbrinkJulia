@@ -16,7 +16,8 @@ void Menu::showMainMenu() {
     std::cout << "4. Run Diagnostics\n";
     std::cout << "5. View System Logs\n";
     std::cout << "6. Run Ascension Trial\n";
-    std::cout << "7. Exit\n";
+    std::cout << "7. Reset Emotional Values\n";
+    std::cout << "8. Exit\n";
 
     // Use yellow to make the prompt easy to spot.
     std::cout << ConsoleColors::Warning;

@@ -12,6 +12,9 @@ public:
     // Advances the emotional state by one system cycle.
     void advanceEmotionalCycle();
 
+    // Resets all emotional values to their starting values.
+    void resetEmotions();
+
     // Calculates the score used by the Ascension Trial.
     int calculateAscensionScore();
 

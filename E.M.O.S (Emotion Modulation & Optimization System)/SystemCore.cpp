@@ -114,6 +114,18 @@ void SystemCore::runEmotionalCycle() {
     appendSystemLog("Emotional cycle processed.");
 }
 
+// Resets all emotional values and records the action.
+void SystemCore::resetEmotions() {
+    emotionEngine.resetEmotions();
+
+    // Green highlights the successful reset message.
+    std::cout << ConsoleColors::Success;
+    std::cout << "\nEmotional values reset to 50.\n";
+    std::cout << ConsoleColors::Normal << "\n";
+
+    appendSystemLog("Emotional values reset.");
+}
+
 // Gets the current score from EmotionEngine.
 int SystemCore::calculateAscensionScore() {
     return emotionEngine.calculateAscensionScore();
