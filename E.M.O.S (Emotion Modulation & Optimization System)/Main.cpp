@@ -3,14 +3,19 @@
 #include <stdexcept>
 #include "SystemCore.h"
 #include "Menu.h"
+#include "ConsoleColors.h"
 
 // main() starts the program.
 // It shows the menu, reads the user's choice, and calls SystemCore.
 int main() {
-    // Display the E.M.O.S. title when the program starts.
+    // Display the E.M.O.S. title in the accent color.
+    std::cout << ConsoleColors::Accent;
     std::cout << "============================================================\n";
     std::cout << "   E.M.O.S. - Emotion Modulation & Optimization System\n";
-    std::cout << "============================================================\n\n";
+    std::cout << "============================================================\n";
+
+    // Return to the normal color before displaying other program text.
+    std::cout << ConsoleColors::Normal << "\n";
 
     // Create the system controller and the object that displays the menu.
     SystemCore core;
@@ -61,16 +66,24 @@ int main() {
             else if (choice == 7) {
                 // Change running to false so the while loop ends.
                 running = false;
+
+                // Show the shutdown message in green.
+                std::cout << ConsoleColors::Success;
                 std::cout << "\nShutting down E.M.O.S...\n";
+                std::cout << ConsoleColors::Normal;
             }
             else {
                 // The input was a number, but not one of the menu choices.
-                std::cout << "\nInvalid option. Please select a number between 1 and 7.\n\n";
+                std::cout << ConsoleColors::Error;
+                std::cout << "\nInvalid option. Please select a number between 1 and 7.\n";
+                std::cout << ConsoleColors::Normal << "\n";
             }
         }
         catch (const std::exception&) {
             // Show an error if the input cannot be converted to a number.
-            std::cout << "\nInvalid input. Please enter a number.\n\n";
+            std::cout << ConsoleColors::Error;
+            std::cout << "\nInvalid input. Please enter a number.\n";
+            std::cout << ConsoleColors::Normal << "\n";
         }
     }
 

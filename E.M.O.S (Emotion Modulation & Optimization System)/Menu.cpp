@@ -1,15 +1,15 @@
 #include "Menu.h"
+#include "ConsoleColors.h"
 #include <iostream>
 
-// Menu constructor.
-// There are no special values that need to be set.
+// Menu displays the choices; Main.cpp handles the user's selection.
 Menu::Menu() {
 }
 
-// Displays the main menu options to the user.
-// The menu only displays choices.
-// main.cpp handles the user's input.
+// Displays the main menu options in the accent color,
+// then displays the input prompt in yellow.
 void Menu::showMainMenu() {
+    std::cout << ConsoleColors::Accent;
     std::cout << "1. Provide Stimulus\n";
     std::cout << "2. View Emotional State\n";
     std::cout << "3. Run Emotional Cycle\n";
@@ -17,5 +17,11 @@ void Menu::showMainMenu() {
     std::cout << "5. View System Logs\n";
     std::cout << "6. Run Ascension Trial\n";
     std::cout << "7. Exit\n";
+
+    // Use yellow to make the prompt easy to spot.
+    std::cout << ConsoleColors::Warning;
     std::cout << "Select an option: ";
+
+    // Restore the normal color before the user types.
+    std::cout << ConsoleColors::Normal;
 }

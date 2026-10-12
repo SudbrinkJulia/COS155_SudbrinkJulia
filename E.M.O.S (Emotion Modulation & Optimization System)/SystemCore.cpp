@@ -1,4 +1,5 @@
 #include "SystemCore.h"
+#include "ConsoleColors.h"
 #include <iostream>
 
 // Starts E.M.O.S. and records the first system log.
@@ -6,12 +7,13 @@ SystemCore::SystemCore() {
     appendSystemLog("E.M.O.S. system initialized.");
 }
 
-// Adds a message to the system log.
+// Adds a message to the system's list of logs.
 void SystemCore::appendSystemLog(const std::string& message) {
     systemLogs.push_back(message);
 }
 
-// Displays the four current emotional values.
+// Displays all four current emotional values.
+// Both the state report and diagnostics use this helper.
 void SystemCore::displayEmotionalState() {
     std::cout << "Stability: "
         << emotionEngine.getStability() << "\n";
@@ -23,29 +25,41 @@ void SystemCore::displayEmotionalState() {
         << emotionEngine.getCuriosity() << "\n";
 }
 
-// Displays the status associated with an Ascension Score.
+// Displays the status that corresponds to the Ascension Score.
+// The color makes the result easier to notice.
 void SystemCore::displayAscensionStatus(int score) {
     if (score >= 120) {
-        std::cout << "ASCENSION READY\n";
+        std::cout << ConsoleColors::Success;
+        std::cout << "ASCENSION READY";
     }
     else if (score >= 90) {
-        std::cout << "STABLE\n";
+        std::cout << ConsoleColors::Warning;
+        std::cout << "STABLE";
     }
     else {
-        std::cout << "UNSTABLE\n";
+        std::cout << ConsoleColors::Error;
+        std::cout << "UNSTABLE";
     }
+
+    // Return to the normal color after printing the status.
+    std::cout << ConsoleColors::Normal << "\n";
 }
 
-// Checks the current condition of the system.
+// Displays system health, emotional values, score, and status.
 void SystemCore::runDiagnostics() {
     int ascensionScore = calculateAscensionScore();
 
+    // Color the diagnostics heading, then restore normal text color.
+    std::cout << ConsoleColors::Accent;
     std::cout << "\n=== E.M.O.S. Diagnostics ===\n";
+    std::cout << ConsoleColors::Normal;
+
     std::cout << "\nSystem Status:\n";
     std::cout << "Emotion Engine: Operational\n";
     std::cout << "Emotional State Monitoring: Operational\n";
     std::cout << "Logging System: Operational\n";
 
+    // Reuse the shared helper instead of repeating value-printing code.
     std::cout << "\nCurrent Emotional State:\n";
     displayEmotionalState();
 
@@ -56,10 +70,11 @@ void SystemCore::runDiagnostics() {
 
     std::cout << "\nDiagnostics completed successfully.\n\n";
 
+    // Record that diagnostics were run.
     appendSystemLog("System diagnostics completed.");
 }
 
-// Processes a stimulus through the EmotionEngine.
+// Tells EmotionEngine to apply a stimulus and records the action.
 void SystemCore::processStimulus() {
     emotionEngine.applyStimulus();
 
@@ -69,9 +84,14 @@ void SystemCore::processStimulus() {
     appendSystemLog("External stimulus processed.");
 }
 
-// Displays the current emotional state and Ascension Score.
+// Displays the current emotional values and Ascension Score.
 void SystemCore::viewState() {
+    // Color the report heading, then restore normal text color.
+    std::cout << ConsoleColors::Accent;
     std::cout << "\n=== Emotional State Report ===\n";
+    std::cout << ConsoleColors::Normal;
+
+    // Reuse the same helper that diagnostics uses.
     displayEmotionalState();
 
     int ascensionScore = calculateAscensionScore();
@@ -84,7 +104,7 @@ void SystemCore::viewState() {
     std::cout << "\n";
 }
 
-// Runs one emotional cycle through the EmotionEngine.
+// Tells EmotionEngine to advance one cycle and records the action.
 void SystemCore::runEmotionalCycle() {
     emotionEngine.advanceEmotionalCycle();
 
@@ -94,16 +114,20 @@ void SystemCore::runEmotionalCycle() {
     appendSystemLog("Emotional cycle processed.");
 }
 
-// Gets the Ascension Score from the EmotionEngine.
+// Gets the current score from EmotionEngine.
 int SystemCore::calculateAscensionScore() {
     return emotionEngine.calculateAscensionScore();
 }
 
-// Tests whether E.M.O.S. has reached the required Ascension Score.
+// Checks whether the current score meets the trial's passing score of 120.
 void SystemCore::runAscensionTrial() {
     int ascensionScore = calculateAscensionScore();
 
+    // Color the trial heading, then restore normal text color.
+    std::cout << ConsoleColors::Accent;
     std::cout << "\n=== ASCENSION TRIAL ===\n";
+    std::cout << ConsoleColors::Normal;
+
     std::cout << "Current Ascension Score: "
         << ascensionScore << "\n\n";
 
@@ -113,27 +137,39 @@ void SystemCore::runAscensionTrial() {
     std::cout << "Evaluating fear...\n\n";
 
     if (ascensionScore >= 120) {
+        // Green highlights a successful trial.
+        std::cout << ConsoleColors::Success;
         std::cout << "Result: ASCENSION TRIAL PASSED\n";
         std::cout << "E.M.O.S. has reached the required emotional threshold.\n";
+        std::cout << ConsoleColors::Normal;
+
         appendSystemLog("Ascension Trial passed.");
     }
     else {
+        // Red highlights an unsuccessful trial.
+        std::cout << ConsoleColors::Error;
         std::cout << "Result: ASCENSION TRIAL NOT PASSED\n";
         std::cout << "The system requires an Ascension Score of 120 or higher.\n";
+        std::cout << ConsoleColors::Normal;
+
         appendSystemLog("Ascension Trial not passed.");
     }
 
     std::cout << "\n";
 }
 
-// Displays all activity recorded in the system log.
+// Displays every action message stored in systemLogs.
 void SystemCore::viewLogs() {
+    // Color the logs heading, then restore normal text color.
+    std::cout << ConsoleColors::Accent;
     std::cout << "\n=== E.M.O.S. System Logs ===\n";
+    std::cout << ConsoleColors::Normal;
 
     if (systemLogs.empty()) {
         std::cout << "No system logs available.\n";
     }
     else {
+        // Print each saved message on its own line.
         for (const std::string& log : systemLogs) {
             std::cout << "- " << log << "\n";
         }
