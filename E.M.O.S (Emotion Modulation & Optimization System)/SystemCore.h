@@ -4,7 +4,7 @@
 #include "EmotionEngine.h"
 
 // SystemCore coordinates E.M.O.S. actions, displays reports,
-// and keeps track of system logs.
+// and keeps track of system logs and session activity.
 class SystemCore {
 public:
     SystemCore();
@@ -17,6 +17,7 @@ public:
     int calculateAscensionScore();
     void runAscensionTrial();
     void viewLogs();
+    void viewSessionSummary();
     void appendSystemLog(const std::string& message);
 
 private:
@@ -26,4 +27,9 @@ private:
 
     EmotionEngine emotionEngine;
     std::vector<std::string> systemLogs;
+
+    // These counters track actions during this program session.
+    int stimulusCount;
+    int emotionalCycleCount;
+    int diagnosticsCount;
 };

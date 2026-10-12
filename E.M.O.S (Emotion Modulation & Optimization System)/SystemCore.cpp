@@ -2,8 +2,13 @@
 #include "ConsoleColors.h"
 #include <iostream>
 
-// Starts E.M.O.S. and records the first system log.
+// Starts E.M.O.S., sets the session counters to zero,
+// and records the first system log.
 SystemCore::SystemCore() {
+    stimulusCount = 0;
+    emotionalCycleCount = 0;
+    diagnosticsCount = 0;
+
     appendSystemLog("E.M.O.S. system initialized.");
 }
 
@@ -47,6 +52,9 @@ void SystemCore::displayAscensionStatus(int score) {
 
 // Displays system health, emotional values, score, and status.
 void SystemCore::runDiagnostics() {
+    // Count each time diagnostics are run.
+    diagnosticsCount++;
+
     int ascensionScore = calculateAscensionScore();
 
     // Color the diagnostics heading, then restore normal text color.
@@ -78,6 +86,9 @@ void SystemCore::runDiagnostics() {
 void SystemCore::processStimulus() {
     emotionEngine.applyStimulus();
 
+    // Count each stimulus processed during this session.
+    stimulusCount++;
+
     std::cout << "\nExternal stimulus received.\n";
     std::cout << "Emotional state adjusted.\n\n";
 
@@ -107,6 +118,9 @@ void SystemCore::viewState() {
 // Tells EmotionEngine to advance one cycle and records the action.
 void SystemCore::runEmotionalCycle() {
     emotionEngine.advanceEmotionalCycle();
+
+    // Count each emotional cycle processed during this session.
+    emotionalCycleCount++;
 
     std::cout << "\nEmotional cycle processed.\n";
     std::cout << "Subsystems updated.\n\n";
@@ -168,6 +182,21 @@ void SystemCore::runAscensionTrial() {
     }
 
     std::cout << "\n";
+}
+
+// Displays a count of important actions from this program session.
+void SystemCore::viewSessionSummary() {
+    int ascensionScore = calculateAscensionScore();
+
+    // Color the summary heading, then restore normal text color.
+    std::cout << ConsoleColors::Accent;
+    std::cout << "\n=== E.M.O.S. Session Summary ===\n";
+    std::cout << ConsoleColors::Normal;
+
+    std::cout << "Stimuli processed: " << stimulusCount << "\n";
+    std::cout << "Emotional cycles run: " << emotionalCycleCount << "\n";
+    std::cout << "Diagnostics run: " << diagnosticsCount << "\n";
+    std::cout << "Current Ascension Score: " << ascensionScore << "\n\n";
 }
 
 // Displays every action message stored in systemLogs.
