@@ -13,6 +13,7 @@ public:
     void processStimulus();
     void viewState();
     void runEmotionalCycle();
+    void resetEmotions();
     int calculateAscensionScore();
     void runAscensionTrial();
     void viewLogs();

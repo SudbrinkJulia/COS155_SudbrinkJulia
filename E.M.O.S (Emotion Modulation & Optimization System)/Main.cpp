@@ -64,6 +64,9 @@ int main() {
                 core.runAscensionTrial();
             }
             else if (choice == 7) {
+                core.resetEmotions();
+            }
+            else if (choice == 8) {
                 // Change running to false so the while loop ends.
                 running = false;
 
@@ -75,7 +78,7 @@ int main() {
             else {
                 // The input was a number, but not one of the menu choices.
                 std::cout << ConsoleColors::Error;
-                std::cout << "\nInvalid option. Please select a number between 1 and 7.\n";
+                std::cout << "\nInvalid option. Please select a number between 1 and 8.\n";
                 std::cout << ConsoleColors::Normal << "\n";
             }
         }

@@ -26,6 +26,14 @@ void EmotionEngine::advanceEmotionalCycle() {
     clampEmotionValues();
 }
 
+// Resets all emotional values to their starting values.
+void EmotionEngine::resetEmotions() {
+    stability = 50;
+    empathy = 50;
+    fear = 50;
+    curiosity = 50;
+}
+
 // Keeps each emotional value within the 0–100 range.
 void EmotionEngine::clampEmotionValues() {
     if (stability < 0) {
