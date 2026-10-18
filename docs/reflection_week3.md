@@ -1,0 +1,9 @@
+# Week 3 Reflection
+
+This week I found three issues in E.M.O.S. First, entering more than one menu value on the same line could cause the extra value to be read as another choice. Second, the program did not handle the end of menu input gracefully. Third, diagnostics reported every subsystem as operational without checking its condition. The menu input issue was the most challenging because I had to understand how reading one value at a time left extra input waiting in the stream.
+
+I fixed the menu issues by changing `main.cpp` to read the full line with `std::getline`, validate the input, and stop the menu loop if reading fails. I updated `SystemCore.cpp` so diagnostics check that the emotion values are within the 0–100 range, that the Ascension Score matches the values, and that system logs are available. I tested entering `1 2`, entering `12`, and ending console input with Ctrl+Z followed by Enter. I also ran diagnostics and confirmed the project built without errors.
+
+Testing unusual input helped me find behavior that normal menu selections did not reveal. The full-line input check now rejects multiple values instead of processing an unintended choice, and the end-of-input check prevents the menu from repeatedly reporting an error. Diagnostics now base their status messages on checks instead of fixed text. I also tested the console colors in Visual Studio and confirmed that they display correctly.
+
+E.M.O.S. is more reliable because it handles unexpected input and reports checked system conditions. If I continue improving it, I would add more tests for emotion values at their 0 and 100 limits and consider how diagnostics could detect additional failures. I would also test the console colors in other terminals to learn whether they work consistently outside Visual Studio.
