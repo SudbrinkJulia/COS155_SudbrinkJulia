@@ -28,18 +28,22 @@ int main() {
         // Display the available actions.
         menu.showMainMenu();
 
-        // Read the input as text first so the program can validate it.
+        // Read the full line so the program can validate all of the input.
         std::string input;
 
         try {
-            std::cin >> input;
+            // If input ends, stop the program instead of repeating an error.
+            if (!std::getline(std::cin, input)) {
+                running = false;
+                break;
+            }
 
             // Convert the text to a number.
             // pos records how many characters were converted.
             size_t pos;
             int choice = std::stoi(input, &pos);
 
-            // Reject input such as "2abc", where not all characters are digits.
+            // Reject input such as "2abc" or "1 2".
             if (pos != input.length()) {
                 throw std::invalid_argument("Invalid input");
             }
@@ -86,9 +90,9 @@ int main() {
             }
         }
         catch (const std::exception&) {
-            // Show an error if the input cannot be converted to a number.
+            // Show an error if the input cannot be converted to one menu number.
             std::cout << ConsoleColors::Error;
-            std::cout << "\nInvalid input. Please enter a number.\n";
+            std::cout << "\nInvalid input. Please enter one menu number.\n";
             std::cout << ConsoleColors::Normal << "\n";
         }
     }
