@@ -1,79 +1,62 @@
+# E.M.O.S. — Emotion Modulation & Optimization System
 
-<br>
+## Project Overview
 
-# Project & Portfolio 1
+E.M.O.S. is a beginner C++ console application that simulates a system tracking four emotional values: stability, empathy, fear, and curiosity. The user selects actions from a numbered menu to change or review those values. The project gave me practice organizing a program into classes, handling user input, and improving code through features and debugging.
 
-### Julia Sudbrink
+## Features
 
-Hello my name is [Julia]. I am a student from [Memphis, TN]. The purpose of this repository is to practice development using version control. This work will help me begin to build a portfolio of skills and accomplishment that can be shared in the future.
+- **Emotional state and stimulus:** The program displays the four emotional values. Providing a stimulus increases empathy and stability and lowers fear.
+- **Emotional cycle:** Running a cycle adjusts stability, curiosity, and fear to represent a system update.
+- **Value limits and reset:** Emotional values stay within the 0–100 range. The reset option returns them to 50.
+- **Diagnostics and Ascension Trial:** Diagnostics display system and emotional-state information. The Ascension Trial calculates a score from the current values and reports whether the threshold is met.
+- **Logs and session summary:** The program records system actions and counts selected actions during the current run. The summary displays those counts and the current score.
+- **Console colors and input handling:** Colors distinguish menu and status messages. The menu accepts a number for an available action and displays an error for invalid selections.
 
-<br>
+## Save and Load
 
-## 📢 &nbsp; Weekly Stand Up
+E.M.O.S. does not currently save or load information from files. Emotional values, logs, and session counts are kept in memory while the application is running. They return to their starting state when the program closes. The application does not create or depend on external data files.
 
-Each week I will summarize my milestone activity and progress by writing a stand-up. A stand-up is meant to be a succinct update on how things are going. Use these prompts as a guide on what to write about:
+## How to Run the Program
 
-⚙️ Overview - What I worked on this past week
-<br>
-🌵 Challenges - What problems did I have & how I'm addressing them
-<br>
-🏆 Accomplishments - What is something I "leveled up" on this week
-<br>
-🔮 Next Steps - What I plan to prioritize and do next
+1. Open the E.M.O.S. Visual Studio solution file (`.sln` or `.slnx`).
+2. Make sure the E.M.O.S. project is selected as the startup project.
+3. Select **Build > Build Solution**.
+4. Select **Debug > Start Without Debugging** or press **Ctrl+F5**.
+5. Use the numbered menu in the console window.
 
-<br>
+## How to Use the Program
 
-### Week 1
+Enter the number beside the action you want and press **Enter**. You can provide a stimulus, view the emotional state, run a cycle or diagnostics, view logs, run the Ascension Trial, reset values, or view the session summary. Choose **Exit** to close the program.
 
-Overview
-This week I focused on planning and designing my project, E.M.O.S. (Emotion Modulation & Optimization System). I developed the project concept, defined the emotional subsystems, planned user interactions, and outlined the overall program structure. I also identified the features and classes needed for future development. 
+## Project Structure
 
-Challenges
-One challenge was determining how to structure the emotional system while keeping the project manageable. I spent time refining the project scope and deciding how the emotional subsystems would interact with one another.
+- **`main.cpp`** starts the program, reads and validates menu input, and sends the selection to `SystemCore`.
+- **`Menu.h` and `Menu.cpp`** display the menu options.
+- **`SystemCore.h` and `SystemCore.cpp`** coordinate program actions, reports, logs, and session counts.
+- **`EmotionEngine.h` and `EmotionEngine.cpp`** store and update emotional values, keep them within limits, and calculate the Ascension Score.
+- **`ConsoleColors.h`** defines the console color codes.
+- **`docs/`** contains project planning and reflection documents.
+- **`images/`** contains the project screenshot shown below.
+- **`dev/`** contains the Visual Studio project files.
 
-Accomplishments
-I created a clear project plan for E.M.O.S., including the emotional subsystems of Stability, Empathy, Fear, and Curiosity. I improved my understanding of project planning, class design, and breaking a large project into smaller development tasks.
+## Technologies Used
 
-Next Steps
-My next goal is to begin building the prototype by implementing the menu system, core loop, and initial emotional subsystem functionality. I also plan to start creating the supporting classes needed to expand the project.
+- C++
+- Visual Studio
+- Git and GitHub
+- Standard C++ library
 
-### Week 2
+## Known Issues and Limitations
 
-Overview
-This week I planned and designed my project, E.M.O.S. (Emotion Modulation & Optimization System). I focused on defining the project's purpose, emotional subsystems, user interactions, and overall program structure. I also created a development plan and identified the classes and features needed for the project.Challenges
+The application is console-based and does not retain emotional values, logs, or session counts after it closes. Its color display depends on the console supporting ANSI color codes.
 
-Challenges
-The biggest challenge was narrowing down the scope of the project and deciding how the emotional subsystems would interact with each other. I spent time refining the concept to make sure it would be achievable while still being interesting and expandable.Accomplishments
+## Project Preview
 
-Accomplishments
-I developed a clear vision for E.M.O.S., planned the emotional subsystem structure, and gained a better understanding of breaking a larger project into smaller development tasks.Next Steps
+![E.M.O.S. running in the console](images/emos-preview.png)
 
-Next Steps
-My next goal is to expand the E.M.O.S. prototype by implementing additional emotional system features, improving usability, and refining the overall program structure. I also plan to begin testing how emotional subsystems interact with one another and continue improving the user experience.
+## Development Reflection
 
-### Week 3
-Overview
-This week I continued developing E.M.O.S. (Emotion Modulation & Optimization System) by expanding the emotional processing system and improving the overall functionality of the program. I moved more of the emotional processing responsibilities into the EmotionEngine class, improved input validation using try/catch, added system logging, improved diagnostics, and added the Ascension Trial feature. I also added limits to the emotional state values so they remain within a 0–100 range.
+Building E.M.O.S. helped me practice breaking a program into classes with separate responsibilities. I learned to make changes in stages, test menu choices and unexpected input, and use GitHub to track project work. Debugging also showed me that clear documentation and testing are part of finishing a program. I want to keep strengthening my C++ foundation and learn more about Python, data, and machine learning as I work toward an AI career.
 
-Challenges
-One challenge was improving the structure of the program without making it unnecessarily complicated. I also needed to replace the original input validation with try/catch handling and make sure invalid input did not cause the program to stop. Another challenge was making sure the EmotionEngine had a real purpose instead of only existing as a placeholder class.
-
-Accomplishments
-I improved the organization of E.M.O.S. by giving the EmotionEngine responsibility for emotional state changes and Ascension Score calculations. I added system logs and expanded the diagnostics system so the program can report its current emotional state and system status. I also implemented the Ascension Trial and tested both successful and unsuccessful trial results. Finally, I added value limits to prevent emotional states from going below 0 or above 100.
-
-Next Steps
-My next goal is to finish documenting the Milestone 3 changes, review the project for any remaining issues, and make sure the repository is organized and ready for the final milestone review. I also plan to continue testing and polishing E.M.O.S. without adding unnecessary features.
-
-### Week 4
-Overview 
-This week I focused on completing and preparing E.M.O.S. (Emotion Modulation & Optimization System) for final submission. I reviewed the completed functionality, tested the main features, checked the input validation and emotional state limits, and made sure the different components of the program work together correctly. I also completed the Milestone 4 documentation and reviewed the repository for organization and completeness.
-
-Challenges 
-One challenge was making sure the completed features worked together as intended without introducing new problems. I also needed to review the project carefully and verify that the final documentation accurately described the system, its features, and the improvements made throughout development.
-
-Accomplishments 
-I completed the final development and documentation for E.M.O.S. I tested the main menu, emotional state system, stimulus functionality, emotional cycles, diagnostics, system logging, and Ascension Trial. I also verified that invalid input is handled correctly and that emotional values stay within the intended 0–100 range. Completing the final documentation helped me better understand how the different parts of the project work together and how to present the completed project as part of a portfolio.
-
-Next Steps 
-My next goal is to complete the final submission and make sure all required files, documentation, and project materials are included in the repository. After submission, I plan to review what I learned from developing E.M.O.S. and use that experience to continue improving my programming and version control skills.
 
